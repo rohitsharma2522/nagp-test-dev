@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-deployment-master
+  app:  kubernetes-app-master
+spec:
+  replicas: 4
+  selector:
+    matchLabels: 
+      app: kubernetes-app-master
