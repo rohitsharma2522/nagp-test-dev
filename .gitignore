@@ -1,6 +1,6 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
-
+bin/* 
 ### STS ###
 .classpath
 .factorypath
@@ -21,3 +21,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/.metadata/

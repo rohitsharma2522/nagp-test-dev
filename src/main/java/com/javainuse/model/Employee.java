@@ -1,12 +1,21 @@
 package com.javainuse.model;
 
 public class Employee {
+	private String branch;
 	private String empId;
 	private String name;
 	private String designation;
 	private double salary;
 
 	public Employee() {
+	}
+	
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
 	}
 
 	public String getName() {
