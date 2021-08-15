@@ -10,7 +10,7 @@ pipeline{
         stage("Checkout"){
             steps {
                 echo "checkout master branch"
-                bat "checkout scm"
+                checkout scm
             }
         }
         stage("Build") {
