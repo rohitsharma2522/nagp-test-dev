@@ -2,9 +2,35 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kubernetes-deployment-master
-  app:  kubernetes-app-master
+  labels:
+    app:  kubernetes-app-master
 spec:
   replicas: 4
   selector:
     matchLabels: 
       app: kubernetes-app-master
+  template:
+    metadata:
+      matchLabels:
+        app: kubernetes-app-master
+    spec:
+      containers:
+        name: kubernetes-app-master
+        image: rohit2522/nagp-jenkins/assignment
+        ports: 
+          - containerPorts: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: kubernetes-app-master
+spec:
+  selector:
+    app: kubernetes-service-master
+  ports:
+    port: 8080
+    targetPort: 30157
+  type: Nodeport
+
+
+
