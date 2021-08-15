@@ -27,7 +27,6 @@ pipeline{
         }
         stage("Sonar Analysis") {
             steps {
-                echo "sonar analysis"
                 withSonarQubeEnv(credentialsId: 'Test_Sonar') {
                     bat "mvn sonar:sonar"
                 }
