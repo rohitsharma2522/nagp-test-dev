@@ -11,26 +11,27 @@ spec:
       app: kubernetes-app-master
   template:
     metadata:
-      matchLabels:
+      labels:
         app: kubernetes-app-master
     spec:
       containers:
-        name: kubernetes-app-master
-        image: rohit2522/nagp-jenkins/assignment
+      - name: kubernetes-app-master
+        image: rohit2522/nagp-jenkins-assignment:master-latest
         ports: 
-          - containerPorts: 8080
+        - containerPort: 8080
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: kubernetes-app-master
+  name: kubernetes-service-master
 spec:
   selector:
-    app: kubernetes-service-master
+    app: kubernetes-app-master
   ports:
+  - nodePort: 30157
     port: 8080
-    targetPort: 30157
-  type: Nodeport
+    targetPort: 8080
+  type: NodePort
 
 
 
