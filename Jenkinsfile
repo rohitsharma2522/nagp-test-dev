@@ -4,7 +4,7 @@ pipeline{
         maven "Maven3"
     }
     environment {
-        registry = "rohit255/nagp-jenkins-assignment"
+        registry = "rohit2522/nagp-jenkins-assignment"
     }
     stages{
         stage("Checkout"){
@@ -27,7 +27,7 @@ pipeline{
         }
         stage("Sonar Analysis") {
             steps {
-                withSonarQubeEnv(credentialsId: 'Test_Sonar') {
+                withSonarQubeEnv('Test_Sonar') {
                     bat "mvn sonar:sonar"
                 }
                
