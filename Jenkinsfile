@@ -50,7 +50,7 @@ pipeline{
                     steps {
                         bat "docker tag i-rohit-2522-master:${BUILD_NUMBER} ${registry}:master-${BUILD_NUMBER}"
                         bat "docker tag i-rohit-2522-master:${BUILD_NUMBER} ${registry}:master-latest"
-                        withDockerRegistry(credentialsId: 'Test_Docker') {
+                        withDockerRegistry(credentialsId: 'Test_Docker', url:"") {
                         bat "docker push ${registry}:master-${BUILD_NUMBER}"
                         bat "docker push ${registry}:master-latest"
                         }
